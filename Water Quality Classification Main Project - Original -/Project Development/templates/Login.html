@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login.css') }}">
+  </head>
+  <body>
+    <div class="login-container">
+      <h1>Login</h1>
+      <form action="/login" method="POST" autocomplete="off">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Login</button>
+      </form>
+      <div class="links">
+        <a href="{{url_for('forgot')}}">Forgot Password?</a>
+        <a href="{{url_for('register')}}">Create an account</a>
+      </div>
+    </div>
+  </body>
+</html>

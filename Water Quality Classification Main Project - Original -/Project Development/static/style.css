@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    background: linear-gradient(0deg,rgba(0, 0, 0, 0.5),rgba(0,0,0,0.9)),url("image2.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;   
+}
+h1{
+    font-family: 'Josefin Sans', sans-serif;
+    color: white;
+}
+.loginbox input[type="text"], input[type="password"]
+{
+    width: 250px;
+    border: none;
+    border-bottom: 2px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+}
+
+#sendMessageButton
+{
+    font-size:18px;
+    font-family: 'Josefin Sans', sans-serif;
+    color:#fff;
+    background:transparent;
+    border:2px solid #fff;
+    padding:4px 35px;
+    border-radius:80px;
+    font-weight:bold;
+    margin:2vh 10px;
+    transition:0.3s ease-in-out;
+}
+#sendMessageButton:hover
+{
+    cursor:pointer;
+    color:rgb(0, 0, 0);
+    background:#ffffff;
+    border:2px solid #ffffff;
+}
+#logout-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    background-color: #0d64e6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  #logout-btn:hover {
+    cursor: pointer;
+    background-color: #444;
+  }
+
+  #info-btn {
+    position: absolute;
+    top: 70px;
+    right: 18px;
+    padding: 10px;
+    background-color: #059d00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  #info-btn:hover {
+    cursor: pointer;
+    background-color: #444;
+  }
+  #log-btn {
+    position: absolute;
+    top: 128px;
+    right: 18px;
+    padding: 10px;
+    background-color: #9d0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  #log-btn:hover {
+    cursor: pointer;
+    background-color: #444;
+  }

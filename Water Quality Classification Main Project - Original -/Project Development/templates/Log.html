@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Water Quality Log</title>
+    <style>
+a {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 16px;
+  padding: 10px 20px;
+  background-color: #09a4e1;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #fff;
+  background-color: #06f;
+  text-shadow: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+	text-decoration: underline;
+}
+      /* Reset default styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Set default font */
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      /* Set background color */
+      body {
+        background-color: #f5f5f5;
+      }
+
+      /* Center the log table */
+      table {
+        margin: 50px auto;
+      }
+
+      /* Add border to table */
+      table {
+        border: 1px solid #ddd;
+        border-collapse: collapse;
+      }
+
+      /* Style table header */
+      th {
+        background-color: #4CAF50;
+        color: #fff;
+        font-weight: bold;
+        text-align: left;
+        padding: 12px;
+        border: 1px solid #ddd;
+      }
+
+      /* Style table rows */
+      tr:nth-child(even) {
+        background-color: #fff;
+      }
+
+      /* Add hover effect to table rows */
+      tr:hover {
+        background-color: #f2f2f2;
+      }
+
+      /* Style table cells */
+      td {
+        text-align: left;
+        padding: 12px;
+        border: 1px solid #ddd;
+      }
+
+      /* Style table cells for the Result column */
+      td:last-child {
+        text-align: center;
+        font-weight: bold;
+        color: #4CAF50;
+      }
+
+      /* Add a title */
+      h1 {
+        text-align: center;
+        font-size: 36px;
+        margin: 50px 0;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Water Quality Log</h1>
+    <table>
+      <tr>
+        <th>row_id</th>
+        <th>pH</th>
+        <th>Hardness</th>
+        <th>Solids</th>
+        <th>Chloramines</th>
+        <th>Sulfate</th>
+        <th>Conductivity</th>
+        <th>Organic Carbon</th>
+        <th>Trihalomethanes</th>
+        <th>Turbidity</th>
+        <th>Result</th>
+        <th>Action</th>
+      </tr>
+      {% for row in rows %}
+      <tr>
+        <td>{{row[0]}}</td>
+        <td>{{row[1]}}</td>
+        <td>{{row[2]}}</td>
+        <td>{{row[3]}}</td>
+        <td>{{row[4]}}</td>
+        <td>{{row[5]}}</td>
+        <td>{{row[6]}}</td>
+        <td>{{row[7]}}</td>
+        <td>{{row[8]}}</td>
+        <td>{{row[9]}}</td>
+        <td>{{row[10]}}</td>
+        <td><button class="delete-button" onclick="deleteRow({{row[0]}})">Delete</button></td>
+      </tr>
+      {% endfor %}
+    </table>
+    <script>
+      function deleteRow(row_id) {
+  if (confirm('Are you sure you want to delete this record permanently?')) {
+    fetch(`/delete/${row_id}`, {
+      method: 'DELETE',
+    })
+      .then(response => {
+        if (response.ok) {
+          alert('Record deleted successfully.');
+          window.location.reload();
+        } else {
+          alert('Error deleting record');
+        }
+      })
+      .catch(error => console.error('Error deleting record:', error));
+  }
+}
+    </script>
+    <a href="{{url_for('predict')}}">Back</a>
+  </body>
+</html>

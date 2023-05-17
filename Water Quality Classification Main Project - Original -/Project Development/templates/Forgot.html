@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Forgot Password</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='forgot.css') }}">
+</head>
+<body>
+	<div class="forgot-password-container">
+		<h1>Forgot Password</h1>
+		<p>Enter security key to reset password.</p>
+		<form action="/forgot" method="POST" autocomplete="off">
+			<label for="security-key">Security Key:</label><br>
+			<input type="text" id="security-key" name="security-key"><br>
+			<input type="submit" value="Reset Password">
+		</form>
+		<a href="{{url_for('login')}}">Back</a>
+	</div>
+</body>
+</html>
